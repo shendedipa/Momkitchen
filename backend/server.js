@@ -18,6 +18,7 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "https://mom-s-kitchen-eight.vercel.app",
+  "https://delta.vercel.app", // Your new Vercel project
 ];
 
 app.use(

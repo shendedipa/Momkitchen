@@ -13,9 +13,10 @@ const Signup = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "https://mom-skitchen-02.onrender.com/api/signup",
+        `${import.meta.env.VITE_API_BASE_URL}/api/signup`,
         form
       );
+
       setMessage(res.data.message);
     } catch (err) {
       setMessage(err.response?.data?.message || "user already exist");
