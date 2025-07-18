@@ -11,7 +11,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
-    navigate("/login");
+    navigate("/Home");
   };
 
   return (
