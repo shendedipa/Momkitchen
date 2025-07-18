@@ -16,13 +16,19 @@ const contactRoutes = require("./routes/contactRoutes");
 const app = express();
 // Use this to allow both localhost (for dev) and Vercel (for production)
 const allowedOrigins = [
-  "http://localhost:5174",
+  "http://localhost:5173",
   "https://mom-s-kitchen-eight.vercel.app",
 ];
-// ✅ Fix CORS: Allow Vercel frontend explicitly
+
 app.use(
   cors({
-    origin: "https://mom-s-kitchen-eight.vercel.app", // Frontend domain
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
